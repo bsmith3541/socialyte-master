@@ -1,4 +1,5 @@
 Socialyte::Application.routes.draw do
+  resources :users
  root to: 'static_pages#home'
  
  match '/help', to: 'static_pages#help'
@@ -8,7 +9,7 @@ Socialyte::Application.routes.draw do
  
  match '/auth/facebook/callback' => 'sessions#create'
  match "/signout" => "sessions#destroy", :as => :signout
- get "users/new"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
