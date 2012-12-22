@@ -12,7 +12,9 @@ Socialyte::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   
  
-  match '/auth/facebook/callback' => 'sessions#create'
+ # these are the questionable ones
+  match '/auth/:provider/callback' => 'sessions#create'
+  match 'auth/failure', to: redirect('/')
   match "/signout" => "sessions#destroy", :as => :signout
 
 

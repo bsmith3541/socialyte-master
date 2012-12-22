@@ -6,11 +6,15 @@
     web application
   </h2>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+ 
   <% if current_user %>
-  	Welcome, current_user.name!
+  	Welcome, <%= current_user.name %>!
+    <br>
+    <%= image_tag(current_user.email) %>
+    <br>
   	<%= link_to "Sign out", signout_path %>
   <% else %>
+   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
   	<%= link_to "Sign in with Facebook", "/auth/facebook" %>!
   <% end %>
 </div>
