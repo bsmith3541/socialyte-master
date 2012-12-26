@@ -26,9 +26,21 @@ class UsersController < ApplicationController
    # @user = User.find(params[:id])
   end
 
+  #def index
+  #    @users = User.all
+  #end
+
   def index
-      @users = User.all
+    @friends = Array.new
+    if current_user.token
+      @rest = Koala::Facebook::API.new(current_user.token)  
+      @events = @rest.fql_query("select uid,eid,rsvp_status from event_member where uid = me()")   
+      @friends = @rest.get_connections("me", "friends")
+      #@profile_image = @graph.get_picture("me")
+      #@fbprofile = @graph.get_object("me")
+    end
   end
+
 
   def update
     if @user.update_attributes(params[:user])

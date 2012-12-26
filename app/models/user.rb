@@ -16,14 +16,26 @@ class User < ActiveRecord::Base
 
 # omniauth stuff
 
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["name"]
+#  def self.create_with_omniauth(auth)
+#    create! do |user|
+#      user.provider = auth["provider"]
+#      user.uid = auth["uid"]
+#      user.name = auth["info"]["name"]
+#      user.password_digest = auth["info"]["location"] # fix password digest
+#      user.email = auth["info"]["image"]
+#    end
+#  end
+
+# koala attempt
+  def self.create_with_omniauth(auth)  
+    create! do |user|  
+      user.provider = auth["provider"]  
+      user.uid = auth["uid"]  
+      user.name = auth["info"]["name"]  
+      user.token = auth['credentials']['token']
       user.password_digest = auth["info"]["location"] # fix password digest
       user.email = auth["info"]["image"]
-    end
+    end  
   end
 
 # you can remove this if stuff really fucks up
