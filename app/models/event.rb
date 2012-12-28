@@ -23,6 +23,7 @@ class Event < ActiveRecord::Base
         		event.location = event_obj["location"]
         		event.name = event_obj["name"]
         		event.start_time = event_obj["start_time"]
+        		event.end_time = event_obj["end_time"]
 	        	event.creator = event_obj["owner"]["id"]
   	      	event.save
   	      end
