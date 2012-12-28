@@ -1,5 +1,7 @@
 Socialyte::Application.routes.draw do
+  get "events/index"
   resources :users
+  resources :events
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'

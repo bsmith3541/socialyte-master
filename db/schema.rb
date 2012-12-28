@@ -11,16 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121222084531) do
+ActiveRecord::Schema.define(:version => 20121227185132) do
 
   create_table "events", :force => true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "description"
+    t.integer  "eid"
+    t.string   "location"
+    t.string   "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "creator"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
-
-  add_index "events", ["user_id", "created_at"], :name => "index_events_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "name"

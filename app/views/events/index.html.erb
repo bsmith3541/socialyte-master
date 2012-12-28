@@ -1,0 +1,11 @@
+<% provide(:title, 'Eventss') %>
+<h1>Events</h1>
+
+<ul class="users">
+	<h2>My Events</h2>
+	<% @events.each do |event| %>
+		<li>
+			<%= event.name %>
+		</li>
+	<% end %>
+</ul>	
