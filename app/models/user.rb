@@ -58,10 +58,6 @@ class User < ActiveRecord::Base
       end
   end
 
-
-      
-
-
 # you can remove this if stuff really fucks up
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -80,13 +76,5 @@ class User < ActiveRecord::Base
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end
-
-  #def self.create_with_omniauth(auth)
-  #create! do |user|
-  #  user.provider = auth["provider"]
-  #  user.uid = auth["uid"]
-  #  user.name = auth["info"]["name"]
- # 	end
- # end
 end
   

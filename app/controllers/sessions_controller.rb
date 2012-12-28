@@ -9,27 +9,15 @@ class SessionsController < ApplicationController
 		user = User.find_by_provider_and_uid(auth_facebook["provider"], auth_facebook["uid"]) || User.create_with_omniauth(auth_facebook)
 		Event.add_events(auth_facebook) # populate database with user's events
 		session[:user_id] = user.id
+		redirect_to root_url, :notice => "Signed in!"
 
 # for koala
 #		session['fb_auth'] = request.env['omniauth.auth']
 #   session['fb_access_token'] = omniauth['credentials']['token']
 #   session['fb_error'] = nil
 
-		redirect_to root_url, :notice => "Signed in!"
+		
 	end
-
-	#def create  
-	#  auth = request.env["omniauth.auth"]  
-	#  user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
-	  # Note i've also passed the omniauth object      
-
-	#  session[:user_id] = user.id  
-	#  session['fb_auth'] = auth
-	#  session['fb_access_token'] = auth['credentials']['token']
-	#  session['fb_error'] = nil
-
-	# redirect_to root_url, :notice => "Signed in!" 
-	#end 
 
 	def destroy
 		session[:user_id] = nil
