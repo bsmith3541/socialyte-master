@@ -194,13 +194,14 @@ input {
   } 
 }
   
+/* styling for newhome */  
 .container-responsive#main {
   background-color: white;
-  opacity: 0.8;
+  opacity: 0.9;
   height:60%;
   width:40%;
   margin: auto;
-  padding: 10px;
+  padding: 20px;
   margin-top: 100px;
   border-radius: 10px;
   text-align:center;
@@ -221,7 +222,7 @@ body {
 
 #facepile{
   background-color:white;
-  border:none; 
+  border:none;
   overflow:hidden; width:250px;
   height: 60px;
   margin: auto;
