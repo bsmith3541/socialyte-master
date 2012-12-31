@@ -12,6 +12,7 @@ Socialyte::Application.routes.draw do
   match '/help', to: 'static_pages#help'
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
+  match '/newhome', to: 'static_pages#newhome'
   
  
  # these are the questionable ones
