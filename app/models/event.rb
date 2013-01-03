@@ -24,7 +24,9 @@ class Event < ActiveRecord::Base
         		event.name = event_obj["name"]
         		event.start_time = event_obj["start_time"]
         		event.end_time = event_obj["end_time"]
-	        #	event.creator = event_obj["owner"]["id"]
+	          if event_obj["owner"]
+              event.creator = event_obj["owner"]["id"]
+            end
   	      	event.save
   	      end
     		end
