@@ -4,7 +4,7 @@ Socialyte::Application.routes.draw do
   resources :events
   resources :sessions, only: [:new, :create, :destroy]
 
-  root to: 'static_pages#home'
+  root to: 'static_pages#newhome'
  
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
@@ -13,6 +13,7 @@ Socialyte::Application.routes.draw do
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match '/newhome', to: 'static_pages#newhome'
+  match '/events', to: 'events#newindex'
   
  
  # these are the questionable ones

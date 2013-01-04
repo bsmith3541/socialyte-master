@@ -1,11 +1,37 @@
-<% provide(:title, 'Eventss') %>
-<h1>Events</h1>
+<% provide(:title, 'Events') %>
+	<div class="container-fluid", id="events">
+		<div class="row-fluid">
+			<div class="span4", id="events-left">
+				<ul class="users">
+					<h2>Events</h2>
+					<% @events.each do |event| %>
+						<li class="event">
+							<%= event.name %>
+						</li>
+					<% end %>	
+				</ul>	
+			</div>
+			<div class="span7", id="events-right">
+				<h2>Event Details</h2>
+				<ul class="users">
+					<div id="map">
+						<% @events.each do |event| %>
+							<li class="event">
+								<%= event.name %>
+							</li>
+						<% end %>	
+					</div>
+				</ul>
+			</div>
+		</div>
+	</div>
 
-<ul class="users">
-	<h2>My Events</h2>
-	<% @events.each do |event| %>
-		<li>
-			<%= event.name %>
-		</li>
-	<% end %>
-</ul>	
+
+
+	<script>
+	  $(document).ready(function() {
+		   $(document).on('click', '.event', function() {
+		     $(this).hide();
+		   });
+	  });
+	</script>

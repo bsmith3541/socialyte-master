@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
-  has_secure_password
+  #has_secure_password
   has_many :events, dependent: :destroy
 
   #before_save { |user| user.email = email.downcase }
@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]  
       user.name = auth["info"]["name"]  
       user.token = auth['credentials']['token']
-      user.password_digest = auth["info"]["location"] # fix password digest
+      user.password_digest = auth["info"]["image"] # fix password digest
       user.email = auth["info"]["image"]
     end  
   end

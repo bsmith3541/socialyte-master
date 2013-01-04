@@ -27,6 +27,9 @@ class Event < ActiveRecord::Base
 	          if event_obj["owner"]
               event.creator = event_obj["owner"]["id"]
             end
+            # if venue attribute present, check for venue id
+            # if venue id is present, get venue object
+            # and find long, lat info
   	      	event.save
   	      end
     		end

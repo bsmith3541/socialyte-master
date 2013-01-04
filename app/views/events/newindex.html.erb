@@ -1,0 +1,23 @@
+<% provide(:title, 'Events') %>
+	<div class="container-fluid", id="events">
+		<% @events.each do |event| %>
+			<li>
+				<%= event.name %>
+			</li>
+		<% end %>
+	</div>
+
+
+
+<!-- old index file -->
+	<% provide(:title, 'Events') %>
+<h1>Events</h1>
+
+<ul class="users">
+	<h2>My Events</h2>
+	<% @events.each do |event| %>
+		<li>
+			<%= event.name %>
+		</li>
+	<% end %>
+</ul>	
