@@ -9,7 +9,7 @@ gem 'haml'
 gem 'faker', '1.0.1'
 
 # for facebook auth
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '1.4.1'
 
 # for facebook graph API
 gem 'koala'

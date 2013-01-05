@@ -195,6 +195,7 @@ input {
 }
   
 /* styling for newhome */  
+/*
 .container-responsive#main {
   background-color: white;
   opacity: 0.9;
@@ -208,9 +209,9 @@ input {
 }
 
 
-.contained-responsive p {
+.container-responsive p {
   padding: 5px;
-}
+} */
 
 body {
   /*background-image: url(http://pcdn.500px.net/746268/2c81355cd59055700ba868a204970209c0bc709c/4.jpg);*/
@@ -222,9 +223,10 @@ body {
 
 #facepile{
   background-color:white;
-  border:none;
-  /*overflow:hidden; width:250px;*/
-  height: 60px;
+  border-radius: 10px;
+  overflow:hidden; width:350px;
+  padding: 5px;
+  height: 80px;
   margin: auto;
   clear:both;
   margin-top:15px;
@@ -238,10 +240,20 @@ body {
   padding: 20px;
   float:left;
   border-radius: 10px;
-  text-align:center;
+  text-align: left;
+}
+
+.event-left {
+  overflow: auto;
+  padding: 10px 0;
+  border-top: 1px solid $grayLighter;
+  &:last-child {
+    border-bottom: 1px solid $grayLighter;
+  }
 }
 
 #events-right {
+  position: relative;
   background-color: white;
   padding: 20px;
   opacity: 0.9;
@@ -249,8 +261,38 @@ body {
   float:right;
   border-radius: 10px;
   text-align:center;
+  overflow: hidden;
 }
 
 #map {
   background-color: blue;
+}
+
+#time {
+  float: right;
+}
+
+/*
+li.event-right{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: none;
+}*/
+
+.alert-notice {
+  text-align: center;
+}
+
+#replaced {
+  background-color: white;
+}
+
+.event-link {
+  text-decoration: none;
+}
+
+.info {
+  text-align: center;
+  background-color: white;
 }

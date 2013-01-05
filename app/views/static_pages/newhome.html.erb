@@ -1,22 +1,24 @@
 <div class="container-responsive" id="main">
- <!-- <%= facebook_like %> -->
+  <% if signed_in? %>
+    Hey, <%= current_user.name %>!
+  <% end %>
   <h1>Welcome to Socialyte!</h1>
 
   <h4>
-    Illuminating your social scene.
+    Illuminating your social scene
   </h4>
 
   <p>
-    Socialyte is an event discovery application that aims to help individuals navigate their social environment.
+    Socialyte is an event discovery application that helps you find parties going on around you!
   </p>
 
-   <p>
-    <%= link_to "Sign in with Facebook!", "/auth/facebook",class: "btn btn-large btn-primary" %>
-  </p>
+  <% if !signed_in? %>
+     <!--<%= link_to "Sign in with Facebook!", "/auth/facebook",class: "btn btn-large btn-primary" %>-->
+     <%= link_to "Sign in with Facebook!", "/auth/facebook",class: "btn btn-large btn-primary", id:"sign_in" %>
+  <% end %>
+
 </div>
  
  <div class="container-responsive" id="facepile">
-  <div class="span5">
-   <iframe src="http://www.facebook.com/plugins/facepile.php?app_id=397393730346493" scrolling="no" frameborder="0" allowTransparency="true"></iframe> 
-  </div>
+  <iframe src="http://www.facebook.com/plugins/facepile.php?app_id=397393730346493" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:350px;height:120px;" allowTransparency="true"></iframe> 
  </div>

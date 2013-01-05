@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   attr_accessible :creator, :description, :eid, :end_time, :location, :name, :start_time
   belongs_to :user
 
-  validates :creator, presence: true
+#  validates :creator, presence: true
   validates :name, presence: true
   validates :start_time, presence: true
   validates :eid, presence: true
@@ -30,7 +30,7 @@ class Event < ActiveRecord::Base
             # if venue attribute present, check for venue id
             # if venue id is present, get venue object
             # and find long, lat info
-  	      	event.save
+  	      	event.save!
   	      end
     		end
       end

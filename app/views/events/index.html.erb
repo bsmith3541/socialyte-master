@@ -1,37 +1,36 @@
 <% provide(:title, 'Events') %>
 	<div class="container-fluid", id="events">
 		<div class="row-fluid">
-			<div class="span4", id="events-left">
+			<div class="span5", id="events-left">
 				<ul class="users">
 					<h2>Events</h2>
 					<% @events.each do |event| %>
-						<li class="event">
-							<%= event.name %>
-						</li>
+					<div class="event-left">
+						<%= link_to event.name, Event.find(event.id), :remote => true, :class => "event-link", :id => event.id %>
+						<p id="time">
+							<%= event.start_time %>
+						</p>
+					</div>
+					<!--	<li class="event-left">
+							
+						</li> -->
 					<% end %>	
 				</ul>	
 			</div>
-			<div class="span7", id="events-right">
-				<h2>Event Details</h2>
-				<ul class="users">
-					<div id="map">
-						<% @events.each do |event| %>
-							<li class="event">
-								<%= event.name %>
-							</li>
-						<% end %>	
-					</div>
-				</ul>
-			</div>
+			<div class="span6", id="events-right"></div>
 		</div>
 	</div>
 
+	<!--<%= link_to "Show event", Event.find(1), :remote => true , :id => "thelink" %>-->
 
+<!-- <div id="replaced"> will be replaced </div> -->
+<script>
+	$(document).ready(function() {
+		$('#events-right').hide();
+	})
 
-	<script>
-	  $(document).ready(function() {
-		   $(document).on('click', '.event', function() {
-		     $(this).hide();
-		   });
-	  });
-	</script>
+	$('.event-link').bind('ajax:complete', function(event, data){
+	  $('#events-right').html(data.responseText);
+	  $('#events-right').show();
+	}); 
+</script>
