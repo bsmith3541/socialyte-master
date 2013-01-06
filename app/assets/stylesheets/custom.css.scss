@@ -237,20 +237,63 @@ body {
   background-color: white;
   opacity: 0.9;
   height: 100%;
-  padding: 20px;
+  padding-top: 20px;
   float:left;
   border-radius: 10px;
   text-align: left;
+  overflow: scroll;
+}
+
+.clear {
+  overflow: hidden;
+  width: 100%;
 }
 
 .event-left {
   overflow: auto;
-  padding: 10px 0;
+  padding: 10px;
   border-top: 1px solid $grayLighter;
   &:last-child {
     border-bottom: 1px solid $grayLighter;
   }
 }
+
+.event-left:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff)); /* for webkit browsers */
+}
+
+.selected {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ccc)); /* for webkit browsers */
+}
+
+.click-region {
+  height: 100%;
+  width: 100%;
+  background-color: red;
+}
+
+.gradient {
+    opacity: 0.5;
+    background: #999; /* for non-css3 browsers */
+
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#000000'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#ccc)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #ccc,  #000); /* for firefox 3.6+ */
+}
+
+
+.gradient2 {
+  background: #eeeeee; /* Old browsers */
+  background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #eeeeee 0%,#cccccc 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+}
+
+
 
 #events-right {
   position: relative;
@@ -272,6 +315,11 @@ body {
   float: right;
 }
 
+#loc {
+  padding-left: 15px;
+  display: inline-block
+}
+
 /*
 li.event-right{
   position: absolute;
@@ -279,6 +327,14 @@ li.event-right{
   width: 100%;
   display: none;
 }*/
+
+#description {
+  float: left;
+  clear: both;
+  text-align: left;
+  overflow: scroll;
+}
+
 
 .alert-notice {
   text-align: center;
@@ -288,11 +344,27 @@ li.event-right{
   background-color: white;
 }
 
-.event-link {
+a.event-link {
   text-decoration: none;
+  padding: 5px;
+  color: #0060B6;
+}
+
+.fb-event {
+  border: 3px solid blue;
 }
 
 .info {
   text-align: center;
   background-color: white;
+}
+
+#hero {
+  background-color: white;
+  opacity: 0.9;
+  margin: 40px;
+  border-radius: 10px;
+  float: right;
+  text-align: center;
+  padding: 10px;
 }

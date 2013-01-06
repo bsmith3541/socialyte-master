@@ -1,22 +1,41 @@
 <% provide(:title, 'Events') %>
 	<div class="container-fluid", id="events">
 		<div class="row-fluid">
-			<div class="span5", id="events-left">
+			<div class="span5 gradient", id="events-left">
 				<ul class="users">
 					<h2>Events</h2>
 					<% @events.each do |event| %>
-					<div class="event-left">
-						<%= link_to event.name, Event.find(event.id), :remote => true, :class => "event-link", :id => event.id %>
-						<p id="time">
-							<%= event.start_time %>
-						</p>
-					</div>
-					<!--	<li class="event-left">
-							
-						</li> -->
+						<% if event.eid %>
+								<script>
+									$(this).addClass("fb-event");
+								</script>
+						<% end %>
+						<div class="event-left">
+							<h4><%= link_to event.name, Event.find(event.id), :remote => true, :class => "event-link", :id => event.id %></h4>
+
+							<h5 id="loc"><%= event.location %></h5>
+							<p id="time">
+								<%= event.start_time.strftime("%b %d") %> |
+								<%= event.start_time.strftime("%I:%M %P") %>
+							</p>
+						</div>
 					<% end %>	
 				</ul>	
+				<!--<div>
+					<%= link_to "Create an Event!", class: "btn btn-large btn-primary", id:"create_event" %>
+				</div>-->
 			</div>
+			<div class="span4" id="hero">
+				<h3>Find events on the left
+				</h3>
+				<br>
+				<h4>or</h4>
+				<h3>Create an event now!</h3>
+				<br>
+				<a class="btn btn-primary btn-large">
+      		Create an event!
+   			</a>
+   		</div>
 			<div class="span6", id="events-right"></div>
 		</div>
 	</div>
@@ -27,10 +46,17 @@
 <script>
 	$(document).ready(function() {
 		$('#events-right').hide();
+		$('#create_event').removeClass("event-left");
 	})
 
-	$('.event-link').bind('ajax:complete', function(event, data){
+	$('.event-left').bind('ajax:complete', function(event, data){
+		$('#hero').hide();
 	  $('#events-right').html(data.responseText);
 	  $('#events-right').show();
 	}); 
+
+	$('.event-left').on('click', function() {
+		$('.event-link').removeClass('selected');
+		$(this).toggleClass('selected');
+	});
 </script>
