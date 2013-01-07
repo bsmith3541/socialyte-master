@@ -18,7 +18,42 @@
   <% end %>
 
 </div>
- 
+
+<div class="modal hide fade" id="myModal">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal" >×</a>
+    <h3 style="text-align: center;">Hey Guys!</h3>
+    <p style="text-align:center;">
+      Thanks guys for helping me out! Here's some info...
+    </p>
+  </div>
+  <div class="modal-body">
+    
+    <h4  style="text-align: center;">What is this for?</h4>
+    <p>
+      The main purpose of this app is to help people find the events that are going around them. This app throws the invitation idea that drives Facebook and Google+ (not that anyone uses it) and makes public information readily available to anyone!
+    </p>
+    <h4 style="text-align: center;">How do I use this shit?</h4>
+    <p>
+      Pretty easily, actually. Once you log in with your Facebook account, the application will immediately add all of your events to the public database. You can create Socialyte-native events by clicking "Create event!" in the upper left hand corner of the navigation bar. Additionally, you can browse the public database of events once you log in. There are many more features to come!
+    </p>
+    <h4 style="text-align: center;">What do you need me to do?</h4>
+    <p>
+      Just play around! Try to break my app. Do things that you think will throw it off! Let me know if things look fishy by going to the "Help" page or by sending me an email at brandon.smith@yale.edu. I welcome any and all feedback! Let me know if something looks weird, something is confusing, etc. Please, please, please, if you ever hesitate to do something, let me know! I'm hoping your involvement will help me refine the user interface so that everyone can use the application without much of a learning curve. 
+    </p>
+    <h2>Thanks again guys!</h2>
+  </div>
+</div>
+
+  
  <div class="container-responsive" id="facepile">
   <iframe src="http://www.facebook.com/plugins/facepile.php?app_id=397393730346493" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:350px;height:120px;" allowTransparency="true"></iframe> 
  </div>
+
+<% if !signed_in? %>
+ <script type="text/javascript">
+    $(window).load(function(){
+        $('#myModal').modal('show');
+    });
+</script>
+<% end %>

@@ -1,13 +1,14 @@
 Socialyte::Application.routes.draw do
   get "events/index"
   resources :users
-  resources :events
+  resources :events, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#newhome'
  
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
+  match '/newevent', to: 'events#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/help', to: 'static_pages#help'
   match '/about', to: 'static_pages#about'

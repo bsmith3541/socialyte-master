@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+  before_filter :signed_in_user#, [:create, :destroy]
+  before_filter :correct_user, only: :destroy
+  
   def index
   end
 
@@ -7,8 +10,14 @@ class EventsController < ApplicationController
   end
 
   def create
-  	@event = Event.new(params[:event])
-  	@event.save
+  	@event = current_user.events.build(params[:event])
+    #@event = Event.new(params[:event])
+  	if @event.save
+      flash[:success] = "Event created!"
+      redirect_to root_url
+    else
+      render 'static_pages/newhome'
+    end
   end
 
   def index
@@ -25,4 +34,14 @@ class EventsController < ApplicationController
 
     #render layout: false if request.xhr?
   end
+
+  def destroy
+  end
+
+  private
+  
+    def correct_user
+      @event = current_user.events.find_by_id(params[:id])
+      redirect_to root_path if @event.nil?
+    end
 end

@@ -16,5 +16,7 @@
 		<p><%= @event.start_time %></p>
 		<h4>Location</h4>
 		<p><%= @event.location %></p>
+		<h4>Created By</h4>
+		<%= link_to User.find(@event.user_id).name, User.find(@event.user_id) %>
 	</div>
 

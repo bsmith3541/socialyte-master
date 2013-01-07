@@ -1,11 +1,12 @@
 class Event < ActiveRecord::Base
-  attr_accessible :creator, :description, :eid, :end_time, :location, :name, :start_time
+  attr_accessible :creator, :description, :eid, :end_time, :location, :name, :start_time, :user_id
   belongs_to :user
 
 #  validates :creator, presence: true
   validates :name, presence: true
   validates :start_time, presence: true
-  validates :eid, presence: true
+  #validates :eid, presence: true # only facebook events have eid's
+  #validates :user_id, presence: true
 
   # method to request a user's events and to add them to the database
   def self.add_events(auth)
@@ -24,6 +25,7 @@ class Event < ActiveRecord::Base
         		event.name = event_obj["name"]
         		event.start_time = event_obj["start_time"]
         		event.end_time = event_obj["end_time"]
+           # event.user_id = current_user.id #associate event with user
 	          if event_obj["owner"]
               event.creator = event_obj["owner"]["id"]
             end

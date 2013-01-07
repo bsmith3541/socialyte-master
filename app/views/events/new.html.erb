@@ -1,0 +1,34 @@
+<% provide(:title, 'Sign up') %>
+
+<div class="container-responsive", id="new-event">
+	<div class="row-fluid">
+		<div class="span4 event-form">
+				<%= form_for(@event) do |f| %>
+
+					<%= f.label :name %>
+					<%= f.text_field :name %>
+
+					<%= f.label :location %>
+					<%= f.text_field :location %>
+
+					<%= f.label :start_time, "Start Date" %>
+					<%= f.date_select :start_time %>
+
+					<%= f.label :start_time %>
+					<%= f.time_select :start_time, :ignore_date => true %>
+		</div>
+		<div class="span4 event-form">	
+			<%= f.label :end_time, "End Date" %>
+			<%= f.date_select :end_time %>
+
+			<%= f.label :end_time %>
+			<%= f.time_select :end_time, :ignore_date => true %>
+
+			<%= f.label :description %>
+			<%= f.text_area :description, style: "height: 100px; width: 200px;" %>
+
+			<%= f.submit "Create event!", class: "btn btn-large btn-primary", style: "margin: auto;" %>
+			<% end %>
+		</div>
+	</div>
+</div>
