@@ -1,0 +1,15 @@
+<li>
+  <span class="content"><%= event.name %></span>
+  <span class="timestamp">
+    <%= event.start_time.strftime("%b %d") %> |
+		<%= event.start_time.strftime("%I:%M %P") %>
+  </span>
+  <span>
+  	<%= event.location %>
+  </span>
+  <% if current_user?(event.user) %>
+    <%= link_to "delete", event, method: :delete,
+                                 confirm: "You sure?",
+                                 title: event.name %>
+  <% end %>
+</li>

@@ -32,9 +32,7 @@
 				<h4>or</h4>
 				<h3>Create an event now!</h3>
 				<br>
-				<a class="btn btn-primary btn-large">
-      		Create an event!
-   			</a>
+				<%= link_to "Create an event!",newevent_path, class: "btn btn-primary btn-large" %>
    		</div>
 			<div class="span6", id="events-right"></div>
 		</div>
@@ -56,7 +54,7 @@
 	}); 
 
 	$('.event-left').on('click', function() {
-		$('.event-link').removeClass('selected');
-		$(this).toggleClass('selected');
+		//$('.event-link').removeClass('selected');
+		//$(this).toggleClass('selected');
 	});
 </script>

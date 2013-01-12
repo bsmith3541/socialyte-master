@@ -1,24 +1,42 @@
 <% provide(:title, @user.name) %>
-<div class="container-responsive", id="user_show">
-	<div class="row-fluid">
-		<div class="span4">
-			<div>
-				<h1>
-					<%= gravatar_for @user %>
-					<%= @user.name %>
-				</h1>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="container-responsive", id="user_details">
-	<div class="row-fluid">
-		<div class="span4", id="user_events">
-			<h2> Events </h2>
-			<% @user.events.each do |event| %>
-				<%= event.name %>
-			<% end %>
-		</div>
-	</div>
+<div class="row">
+  <aside class="span4">
+    <section class="user-side">
+      <h1>
+        <%= image_tag(current_user.avatar) %>
+        <!--<%= gravatar_for @user %>-->
+        <%= @user.name %>
+      </h1>
+      <% @user ||= current_user %>
+        <div class="stats">
+          <a href="<%= following_user_path(@user) %>">
+            <strong id="following" class="stat">
+              <%= @user.followed_users.count %>
+            </strong>
+            following
+          </a>
+          <a href="<%= followers_user_path(@user) %>">
+            <strong id="followers" class="stat">
+              <%= @user.followers.count %>
+            </strong>
+            followers
+          </a>
+        </div>
+    </section>
+    <!--<section class="stats">
+      <%= render 'shared/stats' %>
+    </section>-->
+  </aside>
+  <div class="span8">
+    <%= render 'follow_form' if signed_in? %>
+    <% if @user.events.any? %>
+    <div class="microposts">
+      <h3 class="microposts" style="text-align: center;">Events (<%= @user.events.count %>)</h3>
+      <ol>
+        <%= render @events %>
+      </ol>
+      <!--  <%= @events %> removed will_paginate -->
+    <% end %>
+    </div> 
+  </div>
 </div>

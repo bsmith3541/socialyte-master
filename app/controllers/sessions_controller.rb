@@ -26,7 +26,6 @@ class SessionsController < ApplicationController
        		event.name = event_obj["name"]
        		event.start_time = event_obj["start_time"]
        		event.end_time = event_obj["end_time"]
-          # event.user_id = current_user.id #associate event with user
 	        if event_obj["owner"]
             event.creator = event_obj["owner"]["id"]
           end
@@ -39,7 +38,7 @@ class SessionsController < ApplicationController
     end
 
 		session[:user_id] = user.id
-		redirect_to root_url, :notice => "Signed in!"		
+		redirect_to user, :notice => "Signed in!"		#root_url
 	end
 
 	def add_events(auth)

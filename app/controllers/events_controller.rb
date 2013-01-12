@@ -2,8 +2,6 @@ class EventsController < ApplicationController
   before_filter :signed_in_user#, [:create, :destroy]
   before_filter :correct_user, only: :destroy
   
-  def index
-  end
 
   def new
   	@event = Event.new

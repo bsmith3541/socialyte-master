@@ -1,8 +1,14 @@
 Socialyte::Application.routes.draw do
   get "events/index"
-  resources :users
-  resources :events, only: [:create, :destroy]
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  
   resources :sessions, only: [:new, :create, :destroy]
+  resources :events#, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   root to: 'static_pages#newhome'
  
@@ -14,7 +20,7 @@ Socialyte::Application.routes.draw do
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match '/newhome', to: 'static_pages#newhome'
-  match '/events', to: 'events#newindex'
+  match '/events', to: 'events#index'
   
  
  # these are the questionable ones
