@@ -4,6 +4,7 @@ gem 'rails', '3.2.7'
 gem 'bootstrap-sass', '2.0.0'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'haml'
+gem 'jquery-rails', '2.0.2'
 
 # for creating fake users
 gem 'faker', '1.0.1'
@@ -34,7 +35,6 @@ group :assets do
   gem 'uglifier', '1.2.3'
 end
 
-gem 'jquery-rails', '2.0.2'
 
 group :test do
   gem 'capybara', '1.1.2'
