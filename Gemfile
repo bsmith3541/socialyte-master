@@ -5,7 +5,6 @@ gem 'bootstrap-sass', '2.0.0'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'haml'
 gem 'jquery-rails', '2.0.2'
-gem 'coffee-rails', '3.2.2'
 
 # for creating fake users
 gem 'faker', '1.0.1'
@@ -32,6 +31,7 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '3.2.4'
+  gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.2.3'
 end
 
