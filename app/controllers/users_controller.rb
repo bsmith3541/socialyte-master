@@ -23,7 +23,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @events = @user.events
+    #@events = Event.find(:all, :order => "start_time")
+    @events = @user.events.find(:all, :order => "start_time")
   end
 
   def index
