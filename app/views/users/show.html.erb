@@ -3,9 +3,9 @@
   <aside class="span4">
     <section class="user-side">
       <h1>
-        <%= image_tag(current_user.avatar) %>
+        <%= image_tag(@user.avatar) %>
         <!--<%= gravatar_for @user %>-->
-        <%= current_user.name %>
+        <%= @user.name %>
       </h1>
       <% @user ||= current_user %>
         <div class="stats">
