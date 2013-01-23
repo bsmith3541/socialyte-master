@@ -31,7 +31,7 @@
     <%= render 'follow_form' if signed_in? %>
     <% if @user.events.any? %>
     <div class="microposts">
-      <h3 class="microposts" style="text-align: center;">Events (<%= @user.events.count %>)</h3>
+      <h3 style="text-align: center;">Events (<%= @user.events.count %>)</h3>
       <ol>
         <%= render @events %>
       </ol>

@@ -452,6 +452,8 @@ a.event-link {
 
 .microposts {
   background-color: white;
+  overflow: scroll;
+  height: 500px;
   border-radius: 10px;
   opacity: 0.9;
   list-style: none;
