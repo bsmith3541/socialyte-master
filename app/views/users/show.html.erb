@@ -4,7 +4,6 @@
     <section class="user-side">
       <h1>
         <%= image_tag(@user.avatar) %>
-        <!--<%= gravatar_for @user %>-->
         <%= @user.name %>
       </h1>
       <% @user ||= current_user %>
