@@ -1,22 +1,26 @@
 <% provide(:title, 'Events') %>
 	<h2><%= @event.name %></h2>
-
-	<!--<div class="span4" id="map">
-		<h4> Map details </h4>
-	</div>-->
 	<br>
-	<div class="span6" id="description">
+	<div class="span12" id="description">
 		<h4>Description</h4>
-		<p>
+		
 			<%= @event.description %>
-		</p>
+		
 	</div>
-	<div class="span2" id="other-info">
-		<h4>Time</h4>
-		<p><%= @event.start_time %></p>
-		<h4>Location</h4>
-		<p><%= @event.location %></p>
-		<h4>Created By</h4>
-		<%= link_to User.find(@event.user_id).name, User.find(@event.user_id) %>
+
+	<div class="span12" id="other-info">
+		<p>
+			<ul>
+				<li>
+					Start Time:<%= @event.start_time %>
+				</li>
+				<li>
+					Location:<%= @event.location %>
+				</li>
+				<li>
+					Created By: <%= link_to User.find(@event.user_id).name, User.find(@event.user_id) %>
+				</li>
+			<ul>
+		</p>
 	</div>
 

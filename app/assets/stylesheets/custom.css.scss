@@ -297,12 +297,14 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
 }
 
-
+ul
+{
+    list-style-type: none;
+}
 
 #events-right {
   position: relative;
   background-color: white;
-  padding: 20px;
   opacity: 0.9;
   height: 100%;
   float:right;
@@ -311,6 +313,9 @@ body {
   overflow: hidden;
 }
 
+h2 {
+  margin-bottom: 10px;
+}
 #map {
   background-color: blue;
 }
@@ -333,11 +338,11 @@ li.event-right{
 }*/
 
 #description {
-  float: left;
-  clear: both;
+  /*float: left;
+  clear: both;*/
   text-align: left;
   overflow: scroll;
-  height: 400px;
+  height: 200px;
 }
 
 
@@ -509,4 +514,8 @@ section {
 #following {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+#other-info {
+  clear: both;
 }

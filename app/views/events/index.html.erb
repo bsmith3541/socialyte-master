@@ -11,9 +11,12 @@
 								</script>
 						<% end %>
 						<div class="event-left">
-							<h4><%= link_to event.name, Event.find(event.id), :remote => true, :class => "event-link", :id => event.id %></h4>
-
-							<h5 id="loc"><%= event.location %></h5>
+							<h4>
+								<%= link_to event.name, Event.find(event.id), :remote => true, :class => "event-link", :id => event.id %>
+							</h4>
+							<h5 id="loc">
+								<%= event.location %>
+							</h5>
 							<p id="time">
 								<%= event.start_time.strftime("%b %d") %> |
 								<%= event.start_time.strftime("%I:%M %P") %>
@@ -22,22 +25,17 @@
 					<% end %>	
 				</ul>	
 			</div>
+			<div class="span6", id="events-right"></div>
 			<div class="span4" id="hero">
-				<h3>Find events on the left
-				</h3>
-				<br>
-				<h4>or</h4>
-				<h3>Create an event now!</h3>
-				<br>
-				<%= link_to "Create an event!",newevent_path, class: "btn btn-primary btn-large" %>
-   			</div>
-		<div class="span6", id="events-right"></div>
+					<h3>Find events on the left</h3>
+					<br>
+					<h4>or</h4>
+					<h3>Create an event now!</h3>
+					<br>
+					<%= link_to "Create an event!",newevent_path, class: "btn btn-primary btn-large" %>
+	   	</div>
 		</div>
 	</div>
-
-	<!--<%= link_to "Show event", Event.find(1), :remote => true , :id => "thelink" %>-->
-
-<!-- <div id="replaced"> will be replaced </div> -->
 <script>
 	$(document).ready(function() {
 		$('#events-right').hide();
