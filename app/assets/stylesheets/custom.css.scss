@@ -127,8 +127,11 @@ footer {
 /* sidebar */
 aside {
   section {
-    padding: 10px 0;
+    padding: 10px;
     border-top: 1px solid $grayLighter;
+    background-color: white;
+    opacity: 0.95;
+    border-radius: 10px;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -494,4 +497,16 @@ aside {
 
 section {
   padding: 10px;
+}
+
+#followers {
+  padding: 10px;
+  background-color: white;
+  opacity: 0.95;
+  border-radius: 10px;
+}
+
+#following {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }

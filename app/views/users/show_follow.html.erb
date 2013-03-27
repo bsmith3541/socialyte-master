@@ -1,5 +1,6 @@
-<% provide(:title, @title) %> <div class="row">
-  <aside class="span4">
+<% provide(:title, @title) %> 
+<div class="row">
+  <aside class="span4" id="sidebar">
     <section>
 			<%= image_tag(@user.avatar) %>
 			<h1><%= @user.name %></h1>
@@ -16,12 +17,12 @@
 			<% end %>
     </section>
   </aside>
-  <div class="span8">
-	<h3><%= @title %></h3> 
-	<% if @users.any? %> 
-		<ul class="users">
-			<%= render @users %> 
-		</ul>
-	<% end %>
+  <div class="span6" id="followers">
+		<h3><%= @title %></h3> 
+		<% if @users.any? %> 
+			<ul class="users">
+				<%= render @users %> 
+			</ul>
+		<% end %>
   </div>
 </div>
