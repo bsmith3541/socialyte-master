@@ -3,16 +3,18 @@
 	<br>
 	<div class="span12" id="description">
 		<h4>Description</h4>
-		
+		<p>
 			<%= @event.description %>
-		
+		</p>
 	</div>
 
 	<div class="span12" id="other-info">
 		<p>
 			<ul>
 				<li>
-					Start Time: <%= @event.start_time %>
+					Start Time: 
+
+					<%= @event.start_time.strftime("%b %d | %I:%M %P") %>
 				</li>
 				<li>
 					Location: <%= @event.location %>
