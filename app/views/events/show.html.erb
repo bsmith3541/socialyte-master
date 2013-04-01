@@ -12,10 +12,10 @@
 		<p>
 			<ul>
 				<li>
-					Start Time:<%= @event.start_time %>
+					Start Time: <%= @event.start_time %>
 				</li>
 				<li>
-					Location:<%= @event.location %>
+					Location: <%= @event.location %>
 				</li>
 				<li>
 					Created By: <%= link_to User.find(@event.user_id).name, User.find(@event.user_id) %>
